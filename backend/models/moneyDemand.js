@@ -46,10 +46,11 @@ const moneyDemand = new mongoose.Schema(
             type: Number,
             required: true,
         },
-        debtOwnerWallet: {
-            type: String,
+        debtOwner: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "MoneyOffer",
             required: true,
-          },
+        },
     },
     { timestamps: true }
 )

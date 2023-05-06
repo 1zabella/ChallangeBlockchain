@@ -36,10 +36,10 @@ const moneyOffer = new mongoose.Schema(
             type: String,
             require: true
         },
-        borrowersWallets: {
-            type: [String],
-            required: true,
-        },
+        moneyDemands: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "MoneyDemand",
+        }],
     },
     { timestamps: true }
 )
