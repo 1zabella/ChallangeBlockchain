@@ -62,7 +62,7 @@ const LoginForm: React.FC<Props> = ({ }) => {
             <Input
                 register={register}
                 name="email"
-                label="Seu endereço de email *"
+                label="E-mail *"
                 error={errors['email']}
                 type="email"
             />
@@ -78,8 +78,7 @@ const LoginForm: React.FC<Props> = ({ }) => {
             </Button>
 
             <Link href="/blockchain">
-                Ainda não tem conta? <br />
-                Criar conta
+                Ainda não possui uma conta? Criar conta
             </Link>
         </Form>
     )

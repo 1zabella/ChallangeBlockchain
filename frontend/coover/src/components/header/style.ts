@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
     align-items: center;
     justify-content: center;
     height: 80px;
-
+    
     div {
         position: absolute;
         top: 50%;

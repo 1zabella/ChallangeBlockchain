@@ -26,11 +26,11 @@ export default function Login() {
     return (
         <>
             <Head>
-                <title>Coover - Login</title>
+                <title>PeerFound - Login</title>
             </Head>
             <Header />
             <BackIcon onClick={backHandler} />
-            <Title>Proteja seu smartphone contra tudo, onde estiver</Title>
+            <Title>Bem-vindo ao PeerFound! Antes de tudo, entrem em sua conta.</Title>
             <PageContainer >
                 <LoginForm />
 

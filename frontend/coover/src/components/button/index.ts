@@ -25,6 +25,7 @@ export const Button = styled.button<ButtonProps>`
     align-items: center;
     grid-gap: 10px;
     cursor: pointer;
+    color: ${props => props.theme.colors.white};
 
     ${props => props.lessPadding && `padding: 12px 50px;`}
 

@@ -20,13 +20,13 @@ export const PageContainer = styled.div`
         margin-bottom: 80px;
     }
 `
-export const BlackBackground = styled.div`
+export const BlueBackground = styled.div`
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 50%;
-    background-color: ${props => props.theme.colors.black};
+    background-color: ${props => props.theme.colors.blue};
 
     border-bottom-left-radius: 150px;
     border-bottom-right-radius: 150px;

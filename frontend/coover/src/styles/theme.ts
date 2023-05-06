@@ -1,7 +1,7 @@
 const colors = {
     greyLight1: '#faf9f9',
     greyLight2: '#f4f2f2',
-    greyLight3: '#f0eeee',
+    greyLight3: '#404040',
     greyLight4: '#ccc',
     greyDark1: '#333',
     greyDark2: '#777',
@@ -9,8 +9,9 @@ const colors = {
 
     white: '#fff',
     black: '#000',
+    blue:'#539CFF',
 
-    primary: "#02DE82"
+    primary: "#2364C2"
 }
 
 

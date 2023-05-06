@@ -7,7 +7,7 @@ export const InputContainer = styled.div`
     label {
         margin-bottom: 6px;
         font-size: 14px;
-        font-weight: 400;
+        font-weight: 800;
         display: block;
     }
 
@@ -18,7 +18,8 @@ export const InputContainer = styled.div`
         outline: none;
         border: 1px solid ${props => props.theme.colors.greyLight3};
         font-size: 16px;
-        border-radius: 3px;
+        border-radius: 30px;
+        height: 36px;
     }
 
     span {
