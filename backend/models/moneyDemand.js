@@ -46,23 +46,13 @@ const moneyDemand = new mongoose.Schema(
             type: Number,
             required: true,
         },
-        debtOwner: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "MoneyOffer",
+        debtOwnerWallet: {
+            type: String,
             required: true,
           },
     },
     { timestamps: true }
 )
-
-moneyDemand.virtual('debtOwner', {
-    ref: 'User',
-    localField: '_id',
-    foreignField: 'user'
-})
-
-moneyDemand.set('toObject', { virtuals: true });
-moneyDemand.set('toJSON', { virtuals: true });
 
 const indemnity = mongoose.model('MoneyDemand', moneyDemand)
 
