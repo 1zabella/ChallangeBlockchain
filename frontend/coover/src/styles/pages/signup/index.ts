@@ -19,10 +19,4 @@ export const PageContainer = styled.div<PageContainerProps>`
     grid-gap: 5vw;
     transition: all 0.4s;
 
-    ${props =>
-        props.stage == 1 &&
-        css`
-            transform: translateX(-105vw);
-            
-        `}
 `

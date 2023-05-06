@@ -6,4 +6,8 @@ export const StartText = styled.p`
   border-bottom: 1px solid ${props => props.theme.colors.greyLight4};
   margin-bottom: 40px;
   color: ${props=> props.theme.colors.greyDark1};
+
+  b {
+    font-weight: 600;
+  }
 `;

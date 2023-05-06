@@ -56,10 +56,10 @@ router.post("/logout", authMiddleware, async (req, res) => {
 
 //ROTA DE PERFIL DO USUÁRIO
 router.get("/me", authMiddleware, async (req, res) => {
-  await req.user.populate("invites");
-  if (req.user.insurance) {
-    await req.user.populate("insurance");
-  }
+  // await req.user.populate("invites");
+  // if (req.user.insurance) {
+  //   await req.user.populate("insurance");
+  // }
   res.send(req.user);
 });
 

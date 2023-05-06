@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components'
-import { BsFillPeopleFill } from 'react-icons/bs'
+import { BsPersonCircle } from 'react-icons/bs'
 import { IoMdWallet } from 'react-icons/io'
-import { FaMoneyBillAlt } from 'react-icons/fa'
+import { FaMoneyBill } from 'react-icons/fa'
+import { FaPersonBooth } from 'react-icons/fa'
 
 export const Container = styled.div`
     position: fixed;
@@ -12,7 +13,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
 
-    justify-content: center;
+    justify-content: space-around;
     grid-gap: 20px;
     border-top: 1px solid ${props => props.theme.colors.greyLight4};
     background-color: ${props => props.theme.colors.white};
@@ -46,16 +47,17 @@ interface Item {
     isActive: boolean
 }
 
-export const PeopleIcon = styled(BsFillPeopleFill)<Item>`
-    ${icon}
-
-    
+export const PeopleIcon = styled(BsPersonCircle)<Item>`
+    ${icon}   
 `
 
-export const MoneyIcon = styled(FaMoneyBillAlt)<Item>`
+export const MoneyIcon = styled(FaMoneyBill)<Item>`
     ${icon}
 `
 
 export const WalletIcon = styled(IoMdWallet)<Item>`
     ${icon}
+`
+export const FaMoney  = styled(FaMoneyBill)<Item>`
+${icon}
 `

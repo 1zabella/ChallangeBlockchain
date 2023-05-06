@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-import { Container, MoneyIcon, PeopleIcon, WalletIcon } from './style'
+import { Container, MoneyIcon, PeopleIcon, WalletIcon, FaMoney } from './style'
 import { useUser } from '@/contexts/user'
 
 interface Props {}
@@ -12,28 +12,20 @@ const Navbar: React.FC<Props> = props => {
     const [items, setItems] = useState([
         {
             icon: PeopleIcon,
-            link: '/group',
-            text: 'Grupo'
+            link: '/account',
+            text: 'Perfil'
         },
         {
+            icon: FaMoney,
+            link: '/emprestimo',
+            text: 'Empréstimo'
+        },{
             icon: WalletIcon,
-            link: '/wallet',
-            text: 'Fundos'
+            link: '/dashboard',
+            text: 'Wallet'
         }
     ])
 
-    useEffect(() => {
-        if (user?.insuranceActive) {
-            setItems([
-                ...items,
-                {
-                    icon: MoneyIcon,
-                    link: '/indemnity',
-                    text: 'Indenização'
-                }
-            ])
-        }
-    }, [])
 
     return (
         <Container>

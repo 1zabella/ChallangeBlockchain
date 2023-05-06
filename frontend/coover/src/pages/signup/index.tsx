@@ -36,9 +36,9 @@ const schema = yup.object().shape({
 })
 
 export default function Signup() {
-    const [stage, setStage] = useState(0)
+    
     const router = useRouter()
-
+    const [stage, setStage] = useState(0)
     const backHandler = () => {
         if (stage == 0) {
             router.replace("/")
@@ -46,7 +46,7 @@ export default function Signup() {
             setStage(0)
         }
     }
-
+console.log(stage)
     const {
         register,
         handleSubmit,
@@ -66,8 +66,18 @@ export default function Signup() {
             <Title>Antes de começar, iremos criar sua conta no PeerFound</Title>
 
             <PageContainer stage={stage}>
-                <SignupForm errors={errors} handleSubmit={handleSubmit} register={register} setStage={setStage} />
+            {stage === 0 && 
+                //Retorna o endereço da carteira da conta conectado 
+                <SignupForm errors={errors} handleSubmit={handleSubmit} register={register} setStage={setStage} /> 
+                
+            } 
+            
+            {stage === 1 && 
                 <MetamaskForm watch={watch}/>
+                
+            }
+
+   
             </PageContainer>
         </>
     )

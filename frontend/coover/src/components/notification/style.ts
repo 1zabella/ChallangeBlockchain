@@ -37,6 +37,6 @@ export const Mail = styled(AiOutlineMail)`
 export const NoNotification = styled.p`
     font-size: 18px;
     text-align: center;
-    margin-top: 80%;
+    margin-top: 40%;
     font-weight: 300;
 `

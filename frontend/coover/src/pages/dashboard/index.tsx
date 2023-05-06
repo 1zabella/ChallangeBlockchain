@@ -8,6 +8,10 @@ import axios from '../../../axios'
 import RequireAuthentication from '@/HOC/requireAuthentication'
 import { useUser } from '@/contexts/user'
 import { useRouter } from 'next/router'
+import Input from '@/components/input'
+import { useForm } from 'react-hook-form'
+import Sidebar from '../../components/sidebar'
+import Navbar from '@/components/navbar'
 
 const Dashboard = () => {
     const [notifications, setNotifications] = useState<any>([])
@@ -30,33 +34,46 @@ const Dashboard = () => {
         }
     }, [user])
 
-    useEffect(() => {
-        getInvites()
-    }, [])
+  
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm()
 
     return (
         <>
             <Head>
-                <title>Coover - Dashboard</title>
+                <title>PeerFound - Dashboard</title>
             </Head>
             <PageWrapper>
                 <>
                     <StartText>
-                        Olá!
-                        <br /> Vamos começar?
+                        <b>Sua carteira</b>
+                        <br /> Confira seu saldo atual
                     </StartText>
+                    <h3>Saldo atual:</h3>
+                    <Input style={{ marginTop: '10px' }}
+                    register={register}
+                    name="email"
+                    error={errors['email']}
+                    type="number"
+                    placeholder="R$ 0,00"
+                />
+
                     {notifications && notifications.length > 0 ? (
-                        notifications.map((notification: any) => (
-                            <Notification key={notification._id} id={notification._id} message='Eba! Você foi convidado para participar de um grupo' />
-                        ))
+                        <StartText>
+                        <b>Seus empréstimos</b>
+                        <br /> Empréstimos realizados
+                    </StartText>
                     ) : (
                         <NoNotification>
-                            Nosso sistema já está a procura de um grupo para
-                            você entrar. Em breve você receberá um convite.
+                            Nenhum empréstimo encontrado em sua conta.
                         </NoNotification>
                     )}
                 </>
             </PageWrapper>
+            <Navbar/>
         </>
     )
 }

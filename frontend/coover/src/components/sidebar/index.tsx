@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { Container, Item } from './style'
-import CooverLogo from '../../assets/images/coover_green_logo.png'
+import Logo from '../../assets/images/icon.png'
 import { MdDashboard, MdOutlineGroups2 } from 'react-icons/md'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { FaMoneyBill, FaWallet } from 'react-icons/fa'
@@ -35,7 +35,7 @@ const Sidebar: React.FC<Props> = props => {
 
     return (
         <Container>
-            <Image src={CooverLogo} width={50} alt="Coover logo" />
+            <Image src={Logo} width={50} alt=" logo" />
             {items.map(item => (
                 <Item key={item.link} isActive={router.asPath == item.link}>
                     {item.link &&

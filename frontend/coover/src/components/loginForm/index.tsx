@@ -46,11 +46,9 @@ const LoginForm: React.FC<Props> = ({ }) => {
             const res = await axios.post('/users/login', data)
             setUser(res.data)
             toast.success('Login feito com sucesso!')
-            if (!res.data.insurance) {
+            console.log(res.data)
+            if (res.data) {
                 router.replace('/dashboard')
-            } else {
-                router.replace('/group')
-
             }
         }catch(err:any){
             toast.error(err.response.data)
