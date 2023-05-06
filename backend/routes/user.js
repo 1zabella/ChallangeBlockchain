@@ -15,7 +15,7 @@ router.post("/login", async (req, res) => {
       req.body.email,
       req.body.password
     );
-
+    console.log(user);
     const token = await user.generateAuthToken();
 
     const userResponse = user.toObject();
@@ -32,7 +32,9 @@ router.post("/login", async (req, res) => {
 
     res.send(userResponse);
   } catch (e) {
+    console.log(e)
     res.status(400).send({ error: e.message });
+    
   }
 });
 
@@ -124,36 +126,8 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.patch("/insuranceActive", authMiddleware, async (req, res) => {
-  try {
-    req.user.insuranceActive = true;
-    await req.user.save();
-    res.send();
-  } catch (err) {
-    console.log(err);
-    res.status(500).send(err);
-  }
-});
 
-router.get("/userBalance", authMiddleware, async (req, res) => {
-  try {
-    if (!req.user.insuranceActive) {
-      return res.status(500).send("Usuário ainda não possui um seguro!");
-    }
-    await req.user.populate("insurance");
-    
-    const contractInstance = await SeguroMutuo(req.user.insurance.address);
-    
-    const userBalance = await contractInstance.viewUserBalanceFromAdm(
-      req.user.wallet
-    );
-    
-    const formatedBalance = ethers.utils.formatEther(userBalance.toString());
-    res.send(formatedBalance);
-  } catch (err) {
-    console.log(err);
-    res.status(500).send(err);
-  }
-});
+
+
 
 module.exports = router;

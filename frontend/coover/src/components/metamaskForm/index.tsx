@@ -80,7 +80,7 @@ const MetamaskForm: React.FC<Props> = ({watch}) => {
     return (
         <Container>
             <Paragraph>
-                Conecte-se com uma carteira da Metamask
+            Conecte-se com uma carteira da Metamask
             </Paragraph>
 
             <Image

@@ -15,3 +15,7 @@ export const Form = styled.form`
         cursor: pointer;
     }
 `
+export const CreateAccount = styled.div`
+   width: 100%;
+   text-align: center;
+`

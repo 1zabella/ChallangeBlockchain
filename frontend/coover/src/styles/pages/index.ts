@@ -30,6 +30,7 @@ export const BlueBackground = styled.div`
 
     border-bottom-left-radius: 150px;
     border-bottom-right-radius: 150px;
+    z-index: -1;
 `
 export const LogoContainer = styled.div`
     position: absolute;
@@ -51,7 +52,7 @@ export const PageContainer2 = styled.div`
         font-weight: 600;
         text-align: center;
         padding-top: 0;
-        color: #02DE82;
+        color: ${props => props.theme.colors.blue};
     }
 
 
@@ -72,11 +73,11 @@ export const PageContainer2 = styled.div`
         width: 75%;
         margin: 5px auto;
         margin-bottom: 15px;
-        color: #02DE82;
+
     }
 
     a {
-        color: #02DE82;
+        color: ${props => props.theme.colors.blue} ;
     }
 
     h4 {
@@ -90,6 +91,7 @@ export const PageContainer2 = styled.div`
         padding-right:25px;
        
     }
+ 
 
 
 `
@@ -105,4 +107,9 @@ export const BlackBackground2 = styled.div`
     margin-bottom:25px;
 
     border-radius:7px
+`
+
+export const Img = styled.image`
+  display: flex;
+  margin-left: auto;
 `

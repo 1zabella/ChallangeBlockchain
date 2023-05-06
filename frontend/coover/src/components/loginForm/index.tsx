@@ -77,7 +77,7 @@ const LoginForm: React.FC<Props> = ({ }) => {
                 Login <RightIcon />
             </Button>
 
-            <Link href="/blockchain">
+            <Link href="/signup">
                 Ainda não possui uma conta? Criar conta
             </Link>
         </Form>

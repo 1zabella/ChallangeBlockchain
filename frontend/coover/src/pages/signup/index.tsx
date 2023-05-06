@@ -27,16 +27,12 @@ const schema = yup.object().shape({
         .min(8, 'A senha deve ter pelo menos 8 caracteres')
         .max(32, 'A senha deve ter no máximo 32 caracteres')
         .required('A confirmação de senha é um campo obrigatório'),
-    imei: yup.string().required('O imei é um campo obrigatório'),
-    confirmImei: yup
+    document: yup
         .string()
-        .required('A confirmação do imei é um campo obrigatório'),
-    phoneModel: yup
-        .string()
-        .required('O modelo do celular é um campo obrigatório'),
-    phoneValue: yup
-        .number().typeError("O valor do celular deve ser um número")
-        .required('O valor do celular é um campo obrigatório')
+        .min(9, 'O documento deve ter pelo menos 9 caracteres')
+        .max(11, 'O documento deve ter no máximo 11 caracteres')
+        .required('O documento é um campo obrigatório'),
+
 })
 
 export default function Signup() {
@@ -63,11 +59,11 @@ export default function Signup() {
     return (
         <>
             <Head>
-                <title>Coover - Criar conta</title>
+                <title>PeerFound - Criar conta</title>
             </Head>
             <Header />
             <BackIcon onClick={backHandler}/>
-            <Title>Proteja seu smartphone contra tudo, onde estiver</Title>
+            <Title>Antes de começar, iremos criar sua conta no PeerFound</Title>
 
             <PageContainer stage={stage}>
                 <SignupForm errors={errors} handleSubmit={handleSubmit} register={register} setStage={setStage} />

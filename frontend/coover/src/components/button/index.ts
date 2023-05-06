@@ -79,4 +79,3 @@ export const LogoutButton = styled(Button)`
         grid-gap: 10px;
     }
 `
-
