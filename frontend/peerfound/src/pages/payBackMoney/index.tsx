@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '../../components/button'
 import { RightIcon } from '../../components/rightIcon'
-import { Container } from '../../components/loanForm/style'
+import { Container } from '../../components/loanFormIn/style'
 
 interface Props {
     openWallet(): void
