@@ -1,4 +1,5 @@
 # ChallangeBlockchain - Peer Found
+<br>
 
 <p align="center">
 <img src="https://github.com/1zabella/ChallangeBlockchain/blob/main/imgs/Logo.png" alt="Logo do Grupo" border="0" width="300">
@@ -11,6 +12,8 @@
 - <a href="https://www.linkedin.com/in/sophia-dias/">Sophia Dias</a>
 - <a href="https://www.linkedin.com/in/gustavo-ferreira-oliveira/">Gustavo Ferreira</a>
 - <a href="https://www.linkedin.com/in/gabriel-garcia-gomes-do-o/">Gabriel Garcia</a>
+
+<br>
 
 ## Descrição do projeto:
 
@@ -25,10 +28,11 @@ A solução é capaz de fornecer um bom spread em suas transações, aproveitand
 ## Link do projeto
 
 - <a href="https://taikai.network/inteliblockchain/hackathons/ibchallenge2023/projects/clhb7ypxq48412401zleqv8lmxi/idea">Peer Found</a>
-
+<br>
 ## Vídeo
 
 - <a href="">Vídeo</a>
+<br>
 
 ## Técnologias utilizadas
 
@@ -71,7 +75,8 @@ Ferramenta para teste do smart contract.
  ### python, python notebook 
  
  Linguagem, ambiente utilizados para tratamento de dados, treinamento e execução da IA.
-
+ 
+<br>
 ## Setup do projeto
 
 ### Backend
