@@ -51,6 +51,10 @@ const moneyOffer = new mongoose.Schema(
             trim: true,
             require: false
         },
+        isActive: {
+            type: Boolean,
+            require: false
+        },
         moneyDemands: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: "MoneyDemand",
