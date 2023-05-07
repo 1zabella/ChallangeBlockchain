@@ -25,6 +25,9 @@ app.use('/insurance', insuranceRoutes)
 const indemnityRoutes = require('./routes/indemnity')
 app.use('/indemnity', indemnityRoutes)
 
+const blockchainchallenge = require('./routes/blockchainchallenge')
+app.use('/blockchainchallenge', blockchainchallenge)
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
