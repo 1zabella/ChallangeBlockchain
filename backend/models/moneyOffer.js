@@ -60,6 +60,6 @@ const moneyOffer = new mongoose.Schema(
     { timestamps: true }
 )
 
-const indemnity = mongoose.model('MoneyOffer', moneyOffer)
+const MoneyOffer = mongoose.model('MoneyOffer', moneyOffer)
 
-module.exports = indemnity
+module.exports = MoneyOffer

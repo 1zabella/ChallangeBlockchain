@@ -13,6 +13,8 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import PageWrapper from '@/components/pageWrapper'
 import * as yup from 'yup'
+import { LoaderContainer } from '@/components/loader/style'
+import LoanFormIn from '@/components/loanFormIn'
 
 
 const schema = yup.object().shape({
@@ -49,7 +51,7 @@ export default function Signup() {
             setStage(0)
         }
     }
-console.log(stage)
+
     const {
         register,
         handleSubmit,
@@ -69,8 +71,8 @@ console.log(stage)
                 <BackIcon onClick={backHandler}/>
                 <LoanContainer>
                     <StartText>
-                        <b>Solicitar empréstimo</b>
-                        <br /> Confira seu saldo atual
+                        <b>Oferta empréstimo</b>
+                        <br /> Analisar demandas
                     </StartText>
                 </LoanContainer>
                 
@@ -83,7 +85,7 @@ console.log(stage)
                 } 
                 
                 {stage === 1 && 
-                    <MetamaskForm watch={watch}/>
+                    <LoanFormIn watch={watch}/>
                     
                 }
 

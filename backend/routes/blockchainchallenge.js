@@ -4,21 +4,23 @@ const { authMiddleware, adminMiddleware } = require('../middleware/auth')
 const MoneyOffer = require('../models/moneyOffer')
 const MoneyDemand = require('../models/moneyDemand')
 const router = express.Router()
-const { SeguroMutuo } = require('../ethers')
+
 const { ethers } = require('ethers')
+var store = require('store')
+
 
 //ROTA PARA CRIAR OFERTA DE DINHEIRO
 router.post('/createMoneyOffer', async (req, res) => {
     try {
-        console.log(req.body)
+
         // Cria uma nova instância do modelo de Indemnity com os dados do corpo da requisição
         const moneyOffer = new MoneyOffer({ ...req.body })
-
+        
         // Salva a nova instância de Indemnity no banco de dados
         await moneyOffer.save()
-
         // Retorna um status 200 (OK) após salvar com sucesso
-        res.send()
+        res.status(200).send()
+
     } catch (err) {
         console.log(err)
         // Retorna um erro 500 (Erro Interno do Servidor) em caso de falha

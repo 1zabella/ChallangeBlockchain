@@ -4,9 +4,9 @@ const bcrypt = require("bcryptjs");
 const { authMiddleware, adminMiddleware } = require("../middleware/auth");
 const router = express.Router();
 const User = require("../models/user.js");
-const Insurance = require("../models/insurance");
 const { SeguroMutuo } = require("../ethers");
 const { ethers } = require("ethers");
+var store = require('store')
 
 //ROTA DE LOGIN DO USUÁRIO
 router.post("/login", async (req, res) => {
@@ -20,7 +20,6 @@ router.post("/login", async (req, res) => {
     const userResponse = user.toObject();
     delete userResponse.password;
     userResponse.token = token;
-
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV !== "development",
@@ -58,18 +57,11 @@ router.get("/me", authMiddleware, async (req, res) => {
   // if (req.user.insurance) {
   //   await req.user.populate("insurance");
   // }
+  
   res.send(req.user);
 });
 
-//ROTA DE DASHBOARD DO USUÁRIO (MOSTRA OS GRUPOS AINDA NÃO ATIVOS)
-router.get("/admin", adminMiddleware, async (req, res) => {
-  try {
-    const invites = await Insurance.find({ isActive: false });
-    res.send(invites);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
+
 
 router.get("/isadmin", adminMiddleware, async (req, res) => {
   try {
@@ -94,19 +86,6 @@ router.post("/signup", async (req, res) => {
 
     const token = await user.generateAuthToken(user._id);
 
-    const insurances = await Insurance.find({ isActive: false });
-    for (let i = 0; i < insurances.length; i++) {
-      await insurances[i].populate("users");
-      if (
-        !insurances[i].isActive &&
-        insurances[i].users.length < insurances[i].maxPeople
-      ) {
-        if (user.phoneValue >= insurances[i].minPhoneValue) {
-          insurances[i].invites.push(user._id);
-          await insurances[i].save();
-        }
-      }
-    }
 
     res.cookie("token", token, {
       httpOnly: true,
