@@ -60,10 +60,9 @@ const LoanFormOut: React.FC<Props> = ({watch}) => {
         const moneyOfferForm = watch()
         try {
             const res = await axios.post('blockchainchallenge/createMoneyOffer', moneyOfferForm)
-            if(res.data) {
+
             toast.success("empréstimo cadastrado com sucesso!")
-            router.replace("/wallet")
-            }
+            router.replace("/dashboardUser")
         } catch (err: any) {
             console.log(err.response)
             if (err.response) {

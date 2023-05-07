@@ -32,11 +32,6 @@ const schema = yup.object().shape({
         .string()
         .email('Insira um email válido')
         .required('O email é um campo obrigatório'),
-    password: yup
-        .string()
-        .min(8, 'A senha deve ter pelo menos 8 caracteres')
-        .max(32, 'A senha deve ter no máximo 32 caracteres')
-        .required('A senha é um campo obrigatório')
 })
 
 //Formulário de conexão com a carteira Metamask.
@@ -60,10 +55,10 @@ const LoanFormIn: React.FC<Props> = ({watch}) => {
         const moneyOfferForm = watch()
         try {
             const res = await axios.post('blockchainchallenge/createMoneyOffer', moneyOfferForm)
-            if(res.data) {
+        
             toast.success("empréstimo cadastrado com sucesso!")
-            window.location.href = "/dashboardUser"
-            }
+            window.location.href = "/dashboardAgent"
+        
         } catch (err: any) {
             console.log(err.response)
             if (err.response) {
@@ -79,7 +74,13 @@ const LoanFormIn: React.FC<Props> = ({watch}) => {
     //Retorna a interface do formulário
     return (
         <Container>
-            
+            <Input
+                register={register}
+                name="value"
+                label="Valor *"
+                type="value"
+                error={errors['value']}
+            />
             <Input
                 register={register}
                 name="interestRate"

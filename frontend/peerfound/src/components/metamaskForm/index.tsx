@@ -66,7 +66,7 @@ const MetamaskForm: React.FC<Props> = ({watch}) => {
             const res = await axios.post('/users/signup', signupForm)
             setUser(res.data)
             toast.success("Usuário cadastrado com sucesso!")
-            router.replace("/dashboard")
+            router.replace("/type")
         } catch (err: any) {
             console.log(err.response)
             if (err.response) {
