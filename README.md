@@ -1,5 +1,4 @@
 # ChallangeBlockchain - Peer Found
-Repositório criado para suportar o desenvolvimento dos códigos referentes ao Challenge 2023.
 
 ## Integrantes
 - <a href="https://www.linkedin.com/in/patrick-miranda/">Patrick Miranda</a>
@@ -9,6 +8,43 @@ Repositório criado para suportar o desenvolvimento dos códigos referentes ao C
 - <a href="https://www.linkedin.com/in/gustavo-ferreira-oliveira/">Gustavo Ferreira</a>
 - <a href="https://www.linkedin.com/in/gabriel-garcia-gomes-do-o/">Gabriel Garcia</a>
 
+## Técnologias utilizadas
+
+### Remix Ide
+
+Ferramenta para teste do smart contract.
+
+### Solidity
+
+ linguagem utilizada para escrever contratos inteligentes.
+ 
+ ### Ether.js
+ 
+ Biblioteca utilizada para interagir com a blockchain 
+ 
+ ### Node.js
+ 
+ Utilizado para o Backend da solução.
+ 
+ ### MongoDB
+ 
+ Banco de dados não relacional utilizado para armazenar os dados utilzados na solução.
+ 
+ ### React
+ 
+ Utilizado para criação de um Frontend  reponsívo, e parte do Backend do projeto.
+ 
+ ### CSS
+ 
+ linguagem  Utiliza para definir a aparência e o layout das páginas web, e garantir a identidade visual do website.
+ 
+ ### MetaMask
+ 
+ Wallet utilizada para armazenamento de tokens e autenticação do úsuario
+ 
+ ### python, python notebook 
+ 
+ Linguagem, ambiente utilizados para tratamento de dados, treinamento e execução da IA.
 
 ## Rodar o projeto
 
