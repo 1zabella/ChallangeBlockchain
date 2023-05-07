@@ -185,7 +185,7 @@ router.patch('/user/invite', authMiddleware, async (req, res) => {
 })
 
 //Ver todos os empréstimos
-router.get('/contracts', adminMiddleware, async (req, res) => {
+router.get('/contracts', async (req, res) => {
     try {
         // Criar uma instância da fábrica de seguros
         const factory = await factory()

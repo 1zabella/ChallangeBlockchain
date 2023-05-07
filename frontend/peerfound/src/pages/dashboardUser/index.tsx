@@ -11,6 +11,10 @@ import { useRouter } from 'next/router'
 import Input from '@/components/input'
 import { useForm } from 'react-hook-form'
 import NavbarUser from '@/components/navbarUser'
+import { Button } from '@/components/button'
+import { RightIcon } from '@/components/rightIcon'
+import { toast } from 'react-toastify'
+import { Form } from '@/components/firstPayment/style'
 
 const Dashboard = () => {
     const [notifications, setNotifications] = useState<any>([])
@@ -40,11 +44,35 @@ const Dashboard = () => {
         formState: { errors }
     } = useForm()
 
+    const onSubmit = (data: any) => {
+        // Fazer requisição para backend aqui
+    }
+
+    const handleContinue = async () => {
+
+        try {
+            const res = await axios.post('blockchainchallenge/createMoneyOffer')
+            if(res.data) {
+            toast.success("empréstimo cadastrado com sucesso!")
+            router.replace("/wallet")
+            }
+        } catch (err: any) {
+            console.log(err.response)
+            if (err.response) {
+                toast.error(err.response.data)
+            } else {
+
+                toast.error("Erro ao cadastrar oferta de empréstimo!")
+            }
+        }  
+    }
+
     return (
         <>
             <Head>
                 <title>PeerFound - Dashboard</title>
             </Head>
+            <Form onSubmit={handleSubmit(onSubmit)}>
             <PageWrapper>
                 <>
                     <StartText>
@@ -54,7 +82,7 @@ const Dashboard = () => {
                     <h3>Saldo atual:</h3>
                     <Input style={{ marginTop: '10px' }}
                     register={register}
-                    name="email"
+                    name="deposit"
                     error={errors['email']}
                     type="number"
                     placeholder="R$ 0,00"
@@ -70,8 +98,15 @@ const Dashboard = () => {
                             Nenhum empréstimo encontrado em sua conta.
                         </NoNotification>
                     )}
+                      <Button style={{marginTop: "10%"}} onClick={handleContinue} >
+                Transferir <RightIcon />
+                </Button>
+
                 </>
+
+              
             </PageWrapper>
+            </Form>
             <NavbarUser/>
         </>
     )
