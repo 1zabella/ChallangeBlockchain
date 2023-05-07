@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components'
 import { BsPersonCircle } from 'react-icons/bs'
 import { IoMdWallet } from 'react-icons/io'
 import { FaMoneyBill } from 'react-icons/fa'
-import { FaMoneyBillWave } from 'react-icons/fa'
 import { MdAttachMoney } from 'react-icons/md'
 
 export const Container = styled.div`

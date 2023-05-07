@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-import { Container, MoneyIcon, PeopleIcon, WalletIcon, FaMoney } from './style'
+import { Container, PeopleIcon, WalletIcon,PayBack, FaMoney } from './style'
 import { useUser } from '@/contexts/user'
 
 interface Props {}
@@ -19,6 +19,10 @@ const NavbarAgent: React.FC<Props> = props => {
             icon: FaMoney,
             link: '/loan',
             text: 'Empréstimo'
+        },{
+            icon: PayBack,
+            link: '/confirmTransactionAgent',
+            text: 'Pagamentos'
         },{
             icon: WalletIcon,
             link: '/dashboard',

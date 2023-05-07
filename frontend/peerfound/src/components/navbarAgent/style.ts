@@ -3,6 +3,7 @@ import { BsPersonCircle } from 'react-icons/bs'
 import { IoMdWallet } from 'react-icons/io'
 import { FaMoneyBill } from 'react-icons/fa'
 import { FaPersonBooth } from 'react-icons/fa'
+import { MdAttachMoney } from 'react-icons/md'
 
 export const Container = styled.div`
     position: fixed;
@@ -60,4 +61,7 @@ export const WalletIcon = styled(IoMdWallet)<Item>`
 `
 export const FaMoney  = styled(FaMoneyBill)<Item>`
 ${icon}
+`
+export const PayBack = styled(MdAttachMoney)<Item>`
+    ${icon}
 `

@@ -1,4 +1,3 @@
-import AdminWrapper from '@/components/adminWrapper'
 import { useForm } from 'react-hook-form'
 import {
     AuthBox2,
@@ -13,11 +12,11 @@ import {
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import Coover from '../../../assets/images/coover_logo.png'
+import Logo from '../../../assets/images/icon.png'
 import { Button } from '@/components/button'
 import { useRouter } from 'next/router'
-import MetamaskForm2 from '@/components/metamaskFormCoover'
-import ConectForm from '@/components/inputWalletCoover'
+import MetamaskForm2 from '@/components/metamaskFormPeer'
+import ConectForm from '@/components/inputWallet'
 import Input from '@/components/input'
 import { useMetamask } from '@/contexts/metamask'
 import axios from '../../../../../axios'
@@ -30,7 +29,7 @@ import RequireAuthentication from '@/HOC/requireAuthentication'
 
 interface Props {}
 
-const walletCoover: React.FC<Props> = props => {
+const Wallet: React.FC<Props> = props => {
     const router = useRouter()
     const [loading, setLoading] = useState(false)
     const { account } = useMetamask()
@@ -131,4 +130,4 @@ const walletCoover: React.FC<Props> = props => {
     )
 }
 
-export default RequireAuthentication(walletCoover, true)
+export default RequireAuthentication(Wallet, true)

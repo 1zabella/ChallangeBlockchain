@@ -62,15 +62,6 @@ router.get("/me", authMiddleware, async (req, res) => {
 });
 
 
-
-router.get("/isadmin", adminMiddleware, async (req, res) => {
-  try {
-    res.send(req.user);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
-
 //ROTA DE CRIAÇÃO DE CONTA DO USUÁRIO
 router.post("/signup", async (req, res) => {
   try {
@@ -80,7 +71,6 @@ router.post("/signup", async (req, res) => {
     }
 
     const user = new User(req.body);
-    user.admin = false;
 
     await user.save();
 

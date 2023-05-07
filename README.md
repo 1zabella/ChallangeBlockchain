@@ -101,3 +101,18 @@ Ferramenta para teste do smart contract.
 
 ``` npm i
 ```
+
+## Rodando o projeto
+
+### Abra o terminal na pasta raiz do projeto e execute o comando abaixo para rodar o backend:
+
+``` npm run dev
+```
+
+deixe esse terminal executando o back-end e abra um novo terminal
+
+### Abra o terminal na pasta raiz do projeto e execute o comando abaixo para rodar o front-end:
+
+``` npm run dev
+```
+### Após alguns segundos, o projeto estará rodando em http://localhost:3000/
