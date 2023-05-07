@@ -4,9 +4,6 @@ const { authMiddleware, adminMiddleware } = require('../middleware/auth')
 const MoneyOffer = require('../models/moneyOffer')
 const MoneyDemand = require('../models/moneyDemand')
 const router = express.Router()
-
-const { ethers } = require('ethers')
-var store = require('store')
 const User = require('../models/user')
 
 
@@ -185,7 +182,7 @@ router.patch('/user/invite', authMiddleware, async (req, res) => {
 })
 
 //Ver todos os empréstimos
-router.get('/contracts', adminMiddleware, async (req, res) => {
+router.get('/contracts', async (req, res) => {
     try {
         // Criar uma instância da fábrica de seguros
         const factory = await factory()

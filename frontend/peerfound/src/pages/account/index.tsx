@@ -22,7 +22,7 @@ const Account=()=> {
             <PageWrapper>
                 <>
                     <StartText>
-                        Conta!
+                        <b>Conta</b>
                         <br /> Suas informações:
                     </StartText>
                     <Content>

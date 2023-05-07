@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const moneyOffer = new mongoose.Schema(
+const moneyOfferSchema = new mongoose.Schema(
     {
         user: {
             type: mongoose.Schema.Types.ObjectId,
@@ -75,9 +75,9 @@ moneyOfferSchema.virtual('users', {
     foreignField: 'moneyOffer'
 })
 
-insuranceSchema.set('toObject', { virtuals: true });
-insuranceSchema.set('toJSON', { virtuals: true });
+moneyOfferSchema.set('toObject', { virtuals: true });
+moneyOfferSchema.set('toJSON', { virtuals: true });
 
-const MoneyOffer = mongoose.model('MoneyOffer', moneyOffer)
+const MoneyOffer = mongoose.model('MoneyOffer', moneyOfferSchema)
 
 module.exports = MoneyOffer
