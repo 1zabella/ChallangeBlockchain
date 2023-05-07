@@ -1,5 +1,9 @@
 # ChallangeBlockchain - Peer Found
 
+<p align="center">
+<img src="https://github.com/1zabella/ChallangeBlockchain/blob/main/imgs/Logo.png" alt="Logo do Grupo" border="0" width="300">
+</p>
+
 ## Integrantes
 - <a href="https://www.linkedin.com/in/patrick-miranda/">Patrick Miranda</a>
 - <a href="https://www.linkedin.com/in/pedrocrezende/">Pedro Rezende</a>
@@ -9,6 +13,10 @@
 - <a href="https://www.linkedin.com/in/gabriel-garcia-gomes-do-o/">Gabriel Garcia</a>
 
 ## Técnologias utilizadas
+
+<p align="center">
+<img src="https://github.com/1zabella/ChallangeBlockchain/blob/main/imgs/Arquitetura.jpeg" alt="Logo do Grupo" border="0" width="500">
+</p>
 
 ### Remix Ide
 
