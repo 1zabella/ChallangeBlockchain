@@ -29,8 +29,6 @@ const Account=()=> {
                         {
                             user ? <> <ViewInfo label={'Email:'} value={user.email} />
                                 <ViewInfo label={'Wallet:'} value={user.wallet} />
-                                <ViewInfo label={'Modelo de celular:'} value={user.phoneModel} />
-                                <ViewInfo label={'Valor do celular'} value={'R$' + user.phoneValue} />
                                 <LogoutButton onClick={() => handleLogout("/")}>
                                     <span>
                                         <BiLogOutCircle /> Logout
