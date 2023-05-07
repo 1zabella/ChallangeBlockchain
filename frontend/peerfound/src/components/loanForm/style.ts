@@ -1,32 +1,13 @@
 import styled from 'styled-components'
 
-export const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    grid-gap: 16px;
+export const Container = styled.div`
     width: 80%;
-    margin: 30px auto;
+    margin-left: auto;
+    margin-right: auto;
 
-    a {
-        text-decoration: none;
-        text-align: center;
-        margin-top: 5px;
-        color: ${props => props.theme.colors.primary};
-        cursor: pointer;
+    h3{
+        margin-top: 30%;
+        margin-bottom: 30%;
     }
 `
-export const loan = styled.form`
-    display: flex;
-    flex-direction: column;
-    grid-gap: 16px;
-    width: 80%;
-    margin: 30px auto;
 
-    a {
-        text-decoration: none;
-        text-align: center;
-        margin-top: 5px;
-        color: ${props => props.theme.colors.primary};
-        cursor: pointer;
-    }
-`
