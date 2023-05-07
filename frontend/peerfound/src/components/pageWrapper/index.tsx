@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../header'
-import Navbar from '../navbar'
+import Navbar from '../navbarAgent'
 import { Container, Content } from './style'
 import { useUser } from '@/contexts/user'
 

@@ -6,7 +6,7 @@ import { useUser } from '@/contexts/user'
 
 interface Props {}
 
-const Navbar: React.FC<Props> = props => {
+const NavbarAgent: React.FC<Props> = props => {
     const router = useRouter()
     const { user } = useUser()
     const [items, setItems] = useState([
@@ -41,4 +41,4 @@ const Navbar: React.FC<Props> = props => {
     )
 }
 
-export default Navbar
+export default NavbarAgent

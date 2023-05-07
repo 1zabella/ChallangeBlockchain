@@ -1,5 +1,5 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
+
 import { Button } from '../button'
 import Input from '../input'
 import { RightIcon } from '../rightIcon'
@@ -15,12 +15,12 @@ interface Props {
     errors: any
 }
 
-const LoanForm: React.FC<Props> = ({ setStage,errors,handleSubmit,register }) => {
+const LoanFormUser: React.FC<Props> = ({ setStage,errors,handleSubmit,register }) => {
   
 
     return (
         <Container>
-        <h3>Que tal começar a ofertar empréstimo? Só precisamos de algumas informações! </h3>
+        <h3>Antes do seu empréstimo ser aprovado, precisamos coletar algumas informações.  </h3>
         <Button onClick={() => setStage(1)}>Continuar <RightIcon /></Button>
         </Container>
         
@@ -28,4 +28,4 @@ const LoanForm: React.FC<Props> = ({ setStage,errors,handleSubmit,register }) =>
     )
 }
 
-export default LoanForm
+export default LoanFormUser

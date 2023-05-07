@@ -62,7 +62,7 @@ const LoanFormIn: React.FC<Props> = ({watch}) => {
             const res = await axios.post('blockchainchallenge/createMoneyOffer', moneyOfferForm)
             if(res.data) {
             toast.success("empréstimo cadastrado com sucesso!")
-            router.replace("/wallet")
+            window.location.href = "/dashboardUser"
             }
         } catch (err: any) {
             console.log(err.response)
@@ -79,13 +79,7 @@ const LoanFormIn: React.FC<Props> = ({watch}) => {
     //Retorna a interface do formulário
     return (
         <Container>
-            <Input
-                register={register}
-                name="value"
-                label="Valor *"
-                error={errors['value']}
-                type="number"
-            />
+            
             <Input
                 register={register}
                 name="interestRate"

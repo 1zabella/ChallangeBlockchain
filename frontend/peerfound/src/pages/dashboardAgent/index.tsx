@@ -11,7 +11,8 @@ import { useRouter } from 'next/router'
 import Input from '@/components/input'
 import { useForm } from 'react-hook-form'
 import Sidebar from '../../components/sidebar'
-import Navbar from '@/components/navbar'
+import Navbar from '@/components/navbarAgent'
+import NavbarAgent from '@/components/navbarAgent'
 
 const Dashboard = () => {
     const [notifications, setNotifications] = useState<any>([])
@@ -73,7 +74,7 @@ const Dashboard = () => {
                     )}
                 </>
             </PageWrapper>
-            <Navbar/>
+            <NavbarAgent/>
         </>
     )
 }
