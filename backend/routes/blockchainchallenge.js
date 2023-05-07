@@ -7,12 +7,22 @@ const router = express.Router()
 
 const { ethers } = require('ethers')
 var store = require('store')
+const User = require('../models/user')
 
 
 //ROTA PARA CRIAR OFERTA DE DINHEIRO
 router.post('/createMoneyOffer', async (req, res) => {
     try {
+        const usersThatDontHaveLoan = await User.find({
+            moneyOffer: { $exists: false },
+        })
 
+        const invites = []
+        for (let i = 0; i < usersThatDontHaveLoan.length; i++) {
+            if (usersThatDontHaveLoan[i]) {
+                invites.push(usersThatDontHaveLoan[i]._id)
+            }
+        }
         // Cria uma nova instância do modelo de Indemnity com os dados do corpo da requisição
         const moneyOffer = new MoneyOffer({ ...req.body })
         
@@ -34,8 +44,10 @@ router.post('/createMoneyDemand', async (req, res) => {
         console.log(req.body)
         // Cria uma nova instância do modelo de Indemnity com os dados do corpo da requisição
         const moneyDemand = new MoneyDemand({ ...req.body })
+        const moneyOffer = new MoneyOffer({ ...req.body, isActive: false })
 
         // Salva a nova instância de Indemnity no banco de dados
+        await moneyOffer.save()
         await moneyDemand.save()
 
         // Retorna um status 200 (OK) após salvar com sucesso
@@ -83,26 +95,25 @@ router.get('/moneyOffer/:id', async (req, res) => {
 router.get('/activateMoneyOffer/:id', async (req, res) => {
     try {
         // Busca o documento de Indemnity correspondente ao ID fornecido
-        const moneyOffers = await MoneyOffer.findOne({ _id: req.params.id })
-        if (moneyOffers.isActive) {
+        const moneyOffer = await MoneyOffer.findOne({ _id: req.params.id })
+        if (moneyOffer.isActive) {
             return res.status(500).send('Oferta já ativa!')
         }
 
-        // Popule os usuários associados ao grupo de seguro
         await moneyOffer.populate('users')
 
         const moneyDemandUserWallets = []
         const moneyDemandUserBuyerAmount = []
         const moneyDemandFinalValue = []
 
-        for (let i = 0; i < moneyOffer.users.length; i++) {
-            moneyDemandUserWallets .push(moneyOffer.users[i].wallet)
-            moneyDemandUserBuyerAmount .push(moneyOffer.users[i].buyerAmount)
-                    moneyDemandFinalValue.push(moneyOffer.users[i].finalValue)
+        for (let i = 0; i < MoneyOffer.users.length; i++) {
+            moneyDemandUserWallets .push(MoneyOffer.users[i].wallet)
+            moneyDemandUserBuyerAmount .push(MoneyOffer.users[i].buyerAmount)
+            moneyDemandFinalValue.push(MoneyOffer.users[i].finalValue)
         }
 
         // Crie uma nova instância do contrato Loan na blockchain usando a factory
-        const loan = await Loan()
+        const factory = await factory()
         const tx = await factory.createLoan(
             moneyOffer.spread,
             moneyDemandFinalValue,
@@ -118,11 +129,74 @@ router.get('/activateMoneyOffer/:id', async (req, res) => {
         const loanAddresses = await factory.viewLoans()
         moneyOffer.address = loanAddresses[loanAddresses.length - 1]
         moneyOffer.isActive = true
-        //insurance.invites = []
+        moneyOffer.invites = []
         await moneyOffer.save()
 
         res.send()
     } catch (err) {
+        res.status(500).send(err)
+    }
+})
+
+// ROTA PARA ACEITAR UM EMPRÉSTIMO
+router.patch('/user/invite', authMiddleware, async (req, res) => {
+    try {
+        // Se o usuário já está participando de um empréstimo, retorne um erro
+        if (req.user.moneyOffer) {
+            return res.status(500).send('Esse usuário já participa de um empréstimo')
+        }
+
+        // Buscar o empréstimo no banco de dados pelo ID
+        const moneyOffer = await MoneyOffer.findOne({ _id: req.body.moneyOffer })
+        if (moneyOffer.isActive) {
+            return res.status(500).send('Empréstimo já ativo!')
+        }
+
+        // Popular o empréstimo com os usuários relacionados
+        await moneyOffer.populate('users')
+
+        // Se o empréstimo não for encontrado, retorne um erro
+        if (!moneyOffer) {
+            return res.status(500).send('Empréstimo não encontrado')
+        }
+
+        // Se o empréstimo não tiver convites, retorne um erro
+        if (!moneyOffer.invites) {
+            return res.status(500).send('Esse empréstimo não possui convites')
+        }
+
+        // Verificar se o usuário tem um convite válido para o empréstimo
+        let exists = false
+        for (let i = 0; i < moneyOffers.invites.length; i++) {
+            if (moneyOffer.invites[i].equals(req.user._id)) {
+                exists = true
+            }
+        }
+
+        // Atualizar o usuário com a informação do empréstimo aceito
+        req.user.moneyOffer = req.body.moneyOffer
+        await req.user.save()
+
+        // Enviar o usuário atualizado como resposta
+        res.send(req.user)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
+
+//Ver todos os empréstimos
+router.get('/contracts', adminMiddleware, async (req, res) => {
+    try {
+        // Criar uma instância da fábrica de seguros
+        const factory = await factory()
+
+        // Visualizar os empréstimos disponíveis
+        const tx = await factory.viewLoans()
+
+        // Enviar os empréstimos encontrados como resposta
+        res.send(tx)
+    } catch (err) {
+        console.log(err)
         res.status(500).send(err)
     }
 })

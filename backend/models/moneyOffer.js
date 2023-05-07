@@ -53,16 +53,30 @@ const moneyOffer = new mongoose.Schema(
         },
         isActive: {
             type: Boolean,
-            require: false
+            require: true,
+            default: false,
         },
         moneyDemands: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: "MoneyDemand",
             require: false
         }],
+        invites:[{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        }]
     },
     { timestamps: true }
 )
+
+moneyOfferSchema.virtual('users', {
+    ref: 'User',
+    localField: '_id',
+    foreignField: 'moneyOffer'
+})
+
+insuranceSchema.set('toObject', { virtuals: true });
+insuranceSchema.set('toJSON', { virtuals: true });
 
 const MoneyOffer = mongoose.model('MoneyOffer', moneyOffer)
 
