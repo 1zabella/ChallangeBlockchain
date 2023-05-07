@@ -26,4 +26,15 @@ const Loan = async (address) => {
     return loan
 }
 
-module.exports = { loan, factory }
+const Btgdol = async (address) => {
+    const {MNEMONIC, INFURA_API_KEY, BTGDOL_ADDRESS } = process.env
+    const provider = new ethers.providers.JsonRpcProvider('https://sepolia.infura.io/v3/' + INFURA_API_KEY)
+    const wallet = ethers.Wallet.fromMnemonic(MNEMONIC)
+    const connectedWallet = wallet.connect(provider)
+
+    const btgdol = new ethers.Btgdol(BTGDOL_ADDRESS, BTGDOLJson.abi, connectedWallet)
+
+    return btgdol
+}
+
+module.exports = { SeguroFactory, Loan, Btgdol }
