@@ -116,3 +116,6 @@ deixe esse terminal executando o back-end e abra um novo terminal
 ``` npm run dev
 ```
 ### Após alguns segundos, o projeto estará rodando em http://localhost:3000/
+
+
+<b>Nota: </b> Os arquivos .env foram subidos no github para facilitar a execução do projeto, porém, em um ambiente de produção, esses arquivos não devem ser subidos para o github, pois contém informações sensíveis.
