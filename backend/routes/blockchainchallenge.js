@@ -79,4 +79,52 @@ router.get('/moneyOffer/:id', async (req, res) => {
     }
 })
 
+//ROTA PARA ATIVAR UMA OFERTA DE DINHEIRO
+router.get('/activateMoneyOffer/:id', async (req, res) => {
+    try {
+        // Busca o documento de Indemnity correspondente ao ID fornecido
+        const moneyOffers = await MoneyOffer.findOne({ _id: req.params.id })
+        if (moneyOffers.isActive) {
+            return res.status(500).send('Oferta já ativa!')
+        }
+
+        // Popule os usuários associados ao grupo de seguro
+        await moneyOffer.populate('users')
+
+        const moneyDemandUserWallets = []
+        const moneyDemandUserBuyerAmount = []
+        const moneyDemandFinalValue = []
+
+        for (let i = 0; i < moneyOffer.users.length; i++) {
+            moneyDemandUserWallets .push(moneyOffer.users[i].wallet)
+            moneyDemandUserBuyerAmount .push(moneyOffer.users[i].buyerAmount)
+                    moneyDemandFinalValue.push(moneyOffer.users[i].finalValue)
+        }
+
+        // Crie uma nova instância do contrato Loan na blockchain usando a factory
+        const loan = await Loan()
+        const tx = await factory.createLoan(
+            moneyOffer.spread,
+            moneyDemandFinalValue,
+            moneyOfferBuyerAmount,
+                    moneyDemandUserWallets, 
+            moneyOffer.contractOwner,
+            moneyOffer.seller,
+            moneyOffer.amountFinal,
+            moneyOffer.amount
+        )
+        await tx.wait()
+
+        const loanAddresses = await factory.viewLoans()
+        moneyOffer.address = loanAddresses[loanAddresses.length - 1]
+        moneyOffer.isActive = true
+        //insurance.invites = []
+        await moneyOffer.save()
+
+        res.send()
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
+
 module.exports = router
