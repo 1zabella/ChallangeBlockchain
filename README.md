@@ -12,6 +12,24 @@
 - <a href="https://www.linkedin.com/in/gustavo-ferreira-oliveira/">Gustavo Ferreira</a>
 - <a href="https://www.linkedin.com/in/gabriel-garcia-gomes-do-o/">Gabriel Garcia</a>
 
+## Descrição do projeto:
+
+Plataforma web que possibilita a concessão de empréstimos peer-to-peer transacionados na rede blockchain utilizando BTG Dol (lastreado em dólar). 
+
+O seller, pessoa que deseja fornecer o empréstimo consegue fornecer dinheiro emprestado a qualquer lugar do mundo, aproveitando as altas taxas de juros dos outros países para conseguir obter taxas de retorno maiores que a renda fixa de seu país. 
+
+Já os buyers, vão poder pegar dinheiro emprestado por taxas menores que em seu país em troca de uma garantia, aproveitando os baixos juros em países muito desenvolvidos para conseguir pagar menos juros em seus empréstimos.
+
+A solução é capaz de fornecer um bom spread em suas transações, aproveitando as altas diferenças das taxas de juros entre países. Sendo capaz de criar boa margem de lucro para uma possível entidade financeira que venha e mediar essa relação.
+
+## Link do projeto
+
+- <a href="https://taikai.network/inteliblockchain/hackathons/ibchallenge2023/projects/clhb7ypxq48412401zleqv8lmxi/idea">Peer Found</a>
+
+## Vídeo
+
+- <a href="">Vídeo</a>
+
 ## Técnologias utilizadas
 
 <p align="center">
@@ -54,7 +72,7 @@ Ferramenta para teste do smart contract.
  
  Linguagem, ambiente utilizados para tratamento de dados, treinamento e execução da IA.
 
-## Rodar o projeto
+## Setup do projeto
 
 ### Backend
 
