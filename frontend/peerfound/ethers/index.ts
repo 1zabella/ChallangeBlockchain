@@ -1,32 +1,32 @@
 import { ethers } from 'ethers'
-import seguroFactoryJson from '../contracts/SeguroFactory.json'
-import seguroMutuoJson from '../contracts/SeguroMutuo.json'
+import factoryJson from '../contracts/factory.json'
+import loanJson from '../contracts/loan.json'
 
-export const SeguroFactory = async () => {
+export const factory = async () => {
     const { NEXT_PUBLIC_SEGURO_FACTORY_ADDRESS } = process.env
 
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner();
 
-    const contract = new ethers.Contract(
+    const factory = new ethers.Contract(
         NEXT_PUBLIC_SEGURO_FACTORY_ADDRESS!,
-        seguroFactoryJson.abi,
+        factoryJson.abi,
         signer
     )
 
-    return contract
+    return factory
 }
 
-export const SeguroMutuo = async (address: string) => {
+export const loan = async (address: string) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner();
 
-    const insurance = new ethers.Contract(
+    const loan = new ethers.Contract(
         address,
-        seguroMutuoJson.abi,
+        loanJson.abi,
         signer
     )
 
-    return insurance
+    return loan
 }
 

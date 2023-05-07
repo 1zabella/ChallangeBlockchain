@@ -10,9 +10,9 @@ const SeguroFactory = async () => {
 
     // const provider = new ethers.providers.Web3provider(window.ethereum)
     
-    const loan = new ethers.Loan(SEGURO_FACTORY_ADDRESS, factoryJson.abi, connectedWallet)
+    const factory = new ethers.Loan(SEGURO_FACTORY_ADDRESS, factoryJson.abi, connectedWallet)
 
-    return loan
+    return factory
 }
 
 const Loan = async (address) => {
