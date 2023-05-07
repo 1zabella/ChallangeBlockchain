@@ -17,7 +17,7 @@ const Navbar: React.FC<Props> = props => {
         },
         {
             icon: FaMoney,
-            link: '/emprestimo',
+            link: '/loan',
             text: 'Empréstimo'
         },{
             icon: WalletIcon,

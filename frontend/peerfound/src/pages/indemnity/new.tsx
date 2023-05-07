@@ -21,7 +21,7 @@ const NewIndemnity = () => {
     return (
         <>
             <Head>
-                <title>Coover - Login</title>
+                <title>PeerFound - Login</title>
             </Head>
             <PageWrapper>
                 <>

@@ -36,21 +36,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-//ROTA DE LOGOUT DO USUÁRIO
-router.post("/logout", authMiddleware, async (req, res) => {
-  try {
-    res.clearCookie("token", {
-      httpOnly: true,
-      secure: process.env.NODE_ENV !== "development",
-      maxAge: 2 * 60 * 60 * 1000,
-      path: "/",
-      sameSite: process.env.NODE_ENV !== "development" ? "none" : "lax",
-    });
-    res.send();
-  } catch (e) {
-    restart.status(500).send();
-  }
-});
+
 
 //ROTA DE PERFIL DO USUÁRIO
 router.get("/me", authMiddleware, async (req, res) => {

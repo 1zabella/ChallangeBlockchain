@@ -17,7 +17,7 @@ const Account=()=> {
     return (
         <>
             <Head>
-                <title>Coover - Account</title>
+                <title>PeerFound - Account</title>
             </Head>
             <PageWrapper>
                 <>

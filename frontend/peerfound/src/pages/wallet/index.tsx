@@ -75,7 +75,7 @@ const Wallet = () => {
     return (
         <>
             <Head>
-                <title>Coover - Wallet</title>
+                <title>PeerFound - Wallet</title>
             </Head>
             <PageWrapper>
                 <>

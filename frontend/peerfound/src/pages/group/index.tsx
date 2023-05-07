@@ -35,7 +35,7 @@ const Group = () => {
     return (
         <>
             <Head>
-                <title>Coover - Group</title>
+                <title>PeerFound - Group</title>
             </Head>
             <PageWrapper>
                 <>

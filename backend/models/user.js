@@ -57,12 +57,12 @@ userSchema.methods.generateAuthToken = async function () {
 userSchema.statics.findByCredentials = async function (email, password) {
   const user = await User.findOne({ email }).select("+password");
 
-
   if (!user) {
     throw new Error("Não foi possível achar usuario");
   }
 
   const isMatch = await bycrypt.compare(password, user.password);
+
 
   if (!isMatch) {
     throw new Error("Senhas não conferem");

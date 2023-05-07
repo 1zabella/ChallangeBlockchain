@@ -49,7 +49,7 @@ const View = ()=> {
     return (
         <>
             <Head>
-                <title>Coover - Indemnity</title>
+                <title>PeerFound - Indemnity</title>
             </Head>
             <PageWrapper>
                 <>

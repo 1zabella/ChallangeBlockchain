@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Coover</title>
+                <title>PeerFound</title>
             </Head>
             <PageContainer>
                 <BlueBackground />
