@@ -43,11 +43,12 @@ const FirstPayment = () => {
             })
 
             setAccount(res[0])
-            const sepolia = '0xaa36a7'
-            if (window.ethereum.chainId !== sepolia) {
+
+            const mumbai = '0x13881'
+            if (window.ethereum.chainId !== mumbai) {
                 await window.ethereum.request({
                     method: 'wallet_switchEthereumChain',
-                    params: [{ chainId: sepolia }]
+                    params: [{ chainId: mumbai }]
                 })
             }
 
