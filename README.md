@@ -29,6 +29,7 @@ A solução é capaz de fornecer um bom spread em suas transações, aproveitand
 
 - <a href="https://taikai.network/inteliblockchain/hackathons/ibchallenge2023/projects/clhb7ypxq48412401zleqv8lmxi/idea">Peer Found</a>
 <br>
+
 ## Vídeo
 
 - <a href="">Vídeo</a>
@@ -77,6 +78,7 @@ Ferramenta para teste do smart contract.
  Linguagem, ambiente utilizados para tratamento de dados, treinamento e execução da IA.
  
 <br>
+
 ## Setup do projeto
 
 ### Backend
