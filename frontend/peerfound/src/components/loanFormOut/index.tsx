@@ -40,7 +40,7 @@ const schema = yup.object().shape({
 })
 
 //Formulário de conexão com a carteira Metamask.
-const LoanFormIn: React.FC<Props> = ({watch}) => {
+const LoanFormOut: React.FC<Props> = ({watch}) => {
 //Definição do hook useMetamask, que recupera o estado da account
     const router = useRouter() //Hook para manipular a navegação
     const {setUser} = useUser()
@@ -107,7 +107,6 @@ const LoanFormIn: React.FC<Props> = ({watch}) => {
                 type="string"
                 error={errors['userWallet']}
             />
-            
 
             <Button style={{marginTop: "20px"}} onClick={handleContinue} >
                 Salvar <RightIcon />
@@ -120,4 +119,4 @@ const LoanFormIn: React.FC<Props> = ({watch}) => {
 
 
 
-export default LoanFormIn
+export default LoanFormOut
