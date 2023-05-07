@@ -34,11 +34,21 @@ const userSchema = new mongoose.Schema(
     wallet: {
       type: String,
       required: true,
-    }
-
+    },
+    moneyOffer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "MoneyOffer",
+      required: false,
+    },
   },
   { timestamps: true }
 );
+
+userSchema.virtual("invites", {
+  ref: "MoneyOffer",
+  localField: "_id",
+  foreignField: "invites",
+});
 
 
 
