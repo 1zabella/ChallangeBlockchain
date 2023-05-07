@@ -1,4 +1,4 @@
-#Modelo preditivo, para classificação dos possiveis tomadores de empréstimo
+# Modelo preditivo, para classificação dos possiveis tomadores de empréstimo
 
 ## IA
 
