@@ -48,7 +48,7 @@ const LoginForm: React.FC<Props> = ({ }) => {
             toast.success('Login feito com sucesso!')
             console.log(res.data)
             if (res.data) {
-                router.replace('/dashboard')
+                router.replace('/type')
             }
         }catch(err:any){
             toast.error(err.response.data)
