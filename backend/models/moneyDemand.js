@@ -12,7 +12,7 @@ const moneyDemand = new mongoose.Schema(
             required: false,
             trim: true,
         },
-        value: {
+        buyerAmount: {
             type: Number,
             trim: true,
             required: false,
@@ -24,6 +24,10 @@ const moneyDemand = new mongoose.Schema(
             required: false,
         },
         investmentTerm: {
+            type: Number,
+            required: false,
+        },
+        finalValue: {
             type: Number,
             required: false,
         },

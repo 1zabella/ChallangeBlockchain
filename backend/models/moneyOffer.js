@@ -4,7 +4,7 @@ const moneyOffer = new mongoose.Schema(
     {
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            required: true,
+            required: false,
             ref: 'User',
         },
         userName: {
@@ -12,7 +12,12 @@ const moneyOffer = new mongoose.Schema(
             required: false,
             trim: true,
         },
-        offerMaxValue: {
+        spread: {
+            type: Number,
+            trim: true,
+            required: false,
+        },
+        amount: {
             type: Number,
             trim: true,
             required: false,
@@ -27,11 +32,21 @@ const moneyOffer = new mongoose.Schema(
             type: Number,
             required: false,
         },
-        userWallet: {
+        amountFinal: {
+            type: Number,
+            trim: true,
+            required: false,
+        },
+        seller: {
             type: String,
             require: false
         },
-        curValue: {
+        buyerAmount: {
+            type: Number,
+            trim: true,
+            require: false
+        },
+        finalValue: {
             type: Number,
             trim: true,
             require: false

@@ -10,7 +10,7 @@ const { ethers } = require('ethers')
 //ROTA PARA CRIAR OFERTA DE DINHEIRO
 router.post('/createMoneyOffer', async (req, res) => {
     try {
-
+        console.log(req.body)
         // Cria uma nova instância do modelo de Indemnity com os dados do corpo da requisição
         const moneyOffer = new MoneyOffer({ ...req.body })
 

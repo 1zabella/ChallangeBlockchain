@@ -19,12 +19,6 @@ app.use(cors({
 const userRoutes = require('./routes/user')
 app.use('/users', userRoutes)
 
-const insuranceRoutes = require('./routes/insurance')
-app.use('/insurance', insuranceRoutes)
-
-const indemnityRoutes = require('./routes/indemnity')
-app.use('/indemnity', indemnityRoutes)
-
 const blockchainchallenge = require('./routes/blockchainchallenge')
 app.use('/blockchainchallenge', blockchainchallenge)
 
