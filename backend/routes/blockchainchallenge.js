@@ -138,7 +138,7 @@ router.get('/activateMoneyOffer/:id', async (req, res) => {
     }
 })
 
-// ROTA PARA ACEITAR UM CONVITE
+// ROTA PARA ACEITAR UM EMPRÉSTIMO
 router.patch('/user/invite', authMiddleware, async (req, res) => {
     try {
         // Se o usuário já está participando de um empréstimo, retorne um erro
@@ -184,6 +184,7 @@ router.patch('/user/invite', authMiddleware, async (req, res) => {
     }
 })
 
+//Ver todos os empréstimos
 router.get('/contracts', adminMiddleware, async (req, res) => {
     try {
         // Criar uma instância da fábrica de seguros
