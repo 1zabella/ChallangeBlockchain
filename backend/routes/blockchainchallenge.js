@@ -107,7 +107,7 @@ router.get('/activateMoneyOffer/:id', async (req, res) => {
             moneyOffer.spread,
             moneyDemandFinalValue,
             moneyOfferBuyerAmount,
-                    moneyDemandUserWallets, 
+            moneyDemandUserWallets, 
             moneyOffer.contractOwner,
             moneyOffer.seller,
             moneyOffer.amountFinal,
