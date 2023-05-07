@@ -36,11 +36,11 @@ Ferramenta para teste do smart contract.
  
  ### CSS
  
- linguagem  Utiliza para definir a aparência e o layout das páginas web, e garantir a identidade visual do website.
+ linguagem  utilizada para definir a aparência e o layout das páginas web, e garantir a identidade visual do website.
  
  ### MetaMask
  
- Wallet utilizada para armazenamento de tokens e autenticação do úsuario
+  Wallet utilizada para armazenamento de tokens de autenticação do úsuario.
  
  ### python, python notebook 
  
