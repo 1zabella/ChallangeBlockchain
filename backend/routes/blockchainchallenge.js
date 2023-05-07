@@ -4,9 +4,6 @@ const { authMiddleware, adminMiddleware } = require('../middleware/auth')
 const MoneyOffer = require('../models/moneyOffer')
 const MoneyDemand = require('../models/moneyDemand')
 const router = express.Router()
-
-const { ethers } = require('ethers')
-var store = require('store')
 const User = require('../models/user')
 
 
