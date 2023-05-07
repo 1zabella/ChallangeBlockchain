@@ -1,4 +1,4 @@
-@ -2,19 +2,49 @@ import React from 'react'
+// @ -2,19 +2,49 @@ import React from 'react'
 import { Button } from '../../components/button'
 import { RightIcon } from '../../components/rightIcon'
 import { Container } from '../../components/loanFormIn/style'
