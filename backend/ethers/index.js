@@ -1,6 +1,6 @@
 const { ethers } = require('ethers')
-const seguroFactoryJson = require('../contracts/SeguroFactory.json')
-const seguroMutuoJson = require('../contracts/SeguroMutuo.json')
+const factoryJson = require('../contracts/factory.json')
+const loanJson = require('../contracts/loan.json')
 
 const SeguroFactory = async () => {
     const { MNEMONIC, INFURA_API_KEY, SEGURO_FACTORY_ADDRESS } = process.env
@@ -10,20 +10,20 @@ const SeguroFactory = async () => {
 
     // const provider = new ethers.providers.Web3provider(window.ethereum)
     
-    const contract = new ethers.Contract(SEGURO_FACTORY_ADDRESS, seguroFactoryJson.abi, connectedWallet)
+    const loan = new ethers.Loan(SEGURO_FACTORY_ADDRESS, factoryJson.abi, connectedWallet)
 
-    return contract
+    return loan
 }
 
-const SeguroMutuo = async (address) => {
+const Loan = async (address) => {
     const {MNEMONIC, INFURA_API_KEY} = process.env
     const provider = new ethers.providers.JsonRpcProvider('https://sepolia.infura.io/v3/' + INFURA_API_KEY)
     const wallet = ethers.Wallet.fromMnemonic(MNEMONIC)
     const connectedWallet = wallet.connect(provider)
 
-    const insurance = new ethers.Contract(address, seguroMutuoJson.abi, connectedWallet)
+    const loan = new ethers.Loan(address, loanJson.abi, connectedWallet)
 
-    return insurance
+    return loan
 }
 
-module.exports = { SeguroFactory, SeguroMutuo }
+module.exports = { loan, factory }
